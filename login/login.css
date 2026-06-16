@@ -1,30 +1,35 @@
-/* ===== CSS VARIABLES (matches admin.css exactly) ===== */
+/* ===== CSS VARIABLES (Updated to Oppty Learn Theme) ===== */
 :root {
-    --bg-main: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-surface-hover: #f1f5f9;
-    --primary: #2563eb;
-    --primary-dark: #1e3a8a;
-    --primary-glow: rgba(37, 99, 235, 0.4);
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --border-light: #e2e8f0;
+    --bg-main: #F3EFE6;          /* Cream */
+    --bg-surface: #ffffff;       /* White */
+    --bg-surface-hover: #EBE6D9; /* Darker cream */
+    --primary: #F45B45;          /* Accent Orange */
+    --primary-dark: #d94b36;     /* Dark Orange */
+    --primary-glow: rgba(244, 91, 69, 0.3);
+    --dark-accent: #111A15;      /* Deep Charcoal/Green */
+    --text-main: #2A3631;        /* Dark Slate */
+    --text-muted: #53645D;       /* Muted Green/Grey */
+    --border-light: #DFD9CE;     /* Warm border */
     --accent-yellow: #f59e0b;
     --accent-red: #ef4444;
     --accent-green: #10b981;
-    --accent-purple: #8b5cf6;
+    --accent-purple: #F45B45;    /* Redirected to Orange to fit theme */
+    
     --font-family: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Playfair Display', serif; /* Added for cinematic headings */
+    
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
-    --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
-    --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.06);
-    --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.08);
+    --shadow-sm: 0 2px 4px rgba(17, 26, 21, 0.04);
+    --shadow-md: 0 10px 25px rgba(17, 26, 21, 0.06);
+    --shadow-lg: 0 20px 40px rgba(17, 26, 21, 0.08);
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Hero panel-specific (soft tints) */
-    --hero-bg-1: #eff6ff;
-    --hero-bg-2: #dbeafe;
+    
+    /* Hero panel-specific (Cinematic Dark theme) */
+    --hero-bg-1: #111A15;
+    --hero-bg-2: #1A261F;
 }
 
 /* ===== RESET ===== */
@@ -65,15 +70,8 @@ button { font-family: var(--font-family); }
 
 /* === Background Layers === */
 .bg-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
-    pointer-events: none;
+    /* Removed dotted background as requested */
+    display: none; 
 }
 
 .bg-blob {
@@ -84,12 +82,12 @@ button { font-family: var(--font-family); }
 }
 .bg-blob-1 {
     width: 380px; height: 380px;
-    background: rgba(37, 99, 235, 0.25);
+    background: rgba(244, 91, 69, 0.15); /* Soft orange glow */
     top: -120px; left: -100px;
 }
 .bg-blob-2 {
     width: 340px; height: 340px;
-    background: rgba(139, 92, 246, 0.18);
+    background: rgba(255, 255, 255, 0.05); /* Subtle white glow */
     bottom: -100px; right: -80px;
 }
 
@@ -97,7 +95,7 @@ button { font-family: var(--font-family); }
 .bg-circle {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.65);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 .bg-circle-1 {
@@ -107,7 +105,7 @@ button { font-family: var(--font-family); }
 .bg-circle-2 {
     width: 160px; height: 160px;
     top: calc(58% + 40px); right: -50px;
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Stars */
@@ -127,14 +125,14 @@ button { font-family: var(--font-family); }
     bottom: 22%; left: 8%;
     font-size: 1.2rem;
     color: var(--primary);
-    opacity: 0.6;
+    opacity: 0.8;
     animation: twinkle 3s ease-in-out infinite alternate;
     animation-delay: 0.5s;
 }
 .bg-star-3 {
     top: 14%; left: 32%;
     font-size: 0.9rem;
-    color: var(--accent-purple);
+    color: var(--bg-main);
     opacity: 0.5;
     animation: twinkle 2.8s ease-in-out infinite alternate;
     animation-delay: 1s;
@@ -164,7 +162,7 @@ button { font-family: var(--font-family); }
 }
 .bg-dot-3 {
     bottom: 12%; left: 30%;
-    background: var(--accent-purple);
+    background: var(--bg-main);
     opacity: 0.3;
     width: 10px; height: 10px;
 }
@@ -189,19 +187,19 @@ button { font-family: var(--font-family); }
     align-items: center;
     justify-content: center;
     font-size: 1.7rem;
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 12px 30px rgba(17, 26, 21, 0.4);
     z-index: 3;
 }
 .float-book {
     top: -32px; left: 40px;
-    background: linear-gradient(135deg, #fde68a, #fbbf24);
-    color: #b45309;
+    background: linear-gradient(135deg, var(--bg-surface), var(--bg-main));
+    color: var(--dark-accent);
     animation: floatBook 3s ease-in-out infinite alternate;
 }
 .float-bulb {
     top: -20px; right: 50px;
-    background: linear-gradient(135deg, #fde68a, #f59e0b);
-    color: #b45309;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-surface);
     animation: floatBulb 3.5s ease-in-out infinite alternate;
 }
 @keyframes floatBook {
@@ -226,14 +224,16 @@ button { font-family: var(--font-family); }
     align-items: center;
     gap: 8px;
     font-size: 0.88rem;
-    color: var(--text-muted);
+    color: var(--border-light);
     font-weight: 600;
     margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
     padding: 6px 16px;
     border-radius: 100px;
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 .eyebrow-dot {
     width: 7px; height: 7px;
@@ -248,11 +248,12 @@ button { font-family: var(--font-family); }
 
 .hero-headline,
 .hero-headline-2 {
-    font-size: 2.7rem;
-    font-weight: 800;
+    font-family: var(--font-serif);
+    font-size: 3.2rem;
+    font-weight: 400;
     line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: var(--text-main);
+    letter-spacing: -0.02em;
+    color: var(--bg-surface); /* White text for dark background */
 }
 .hero-headline { margin-bottom: 6px; }
 .hero-headline-2 { margin-bottom: 26px; }
@@ -262,6 +263,7 @@ button { font-family: var(--font-family); }
     color: var(--primary);
     display: inline-block;
     padding: 0 4px;
+    font-style: italic;
 }
 .underline-svg {
     position: absolute;
@@ -273,8 +275,8 @@ button { font-family: var(--font-family); }
 }
 
 .hero-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
+    color: #8F9A95; /* Muted light green-grey */
+    font-size: 1.05rem;
     line-height: 1.7;
     max-width: 440px;
     margin: 0 auto 36px;
@@ -285,18 +287,19 @@ button { font-family: var(--font-family); }
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    background: var(--bg-surface);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     padding: 8px 22px 8px 8px;
     border-radius: 100px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(37, 99, 235, 0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .avatars { display: flex; align-items: center; }
 .avatars img {
     width: 36px; height: 36px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--bg-surface);
+    border: 2px solid var(--dark-accent);
     margin-left: -10px;
 }
 .avatars img:first-child { margin-left: 0; }
@@ -310,7 +313,7 @@ button { font-family: var(--font-family); }
     justify-content: center;
     font-size: 0.68rem;
     font-weight: 800;
-    border: 2px solid var(--bg-surface);
+    border: 2px solid var(--dark-accent);
     margin-left: -10px;
 }
 .reviews-info {
@@ -322,14 +325,14 @@ button { font-family: var(--font-family); }
 .stars {
     font-size: 0.88rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: var(--accent-yellow);
     display: flex;
     align-items: center;
     gap: 4px;
 }
 .reviews-label {
-    font-size: 0.7rem;
-    color: var(--text-muted);
+    font-size: 0.75rem;
+    color: #8F9A95;
     font-weight: 600;
 }
 
@@ -340,25 +343,25 @@ button { font-family: var(--font-family); }
     gap: 14px;
 }
 .stat-card {
-    background: var(--bg-surface);
+    background: rgba(255, 255, 255, 0.03);
     border-radius: var(--radius-md);
     padding: 16px 18px;
     display: flex;
     align-items: center;
     gap: 14px;
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
 }
 .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(37, 99, 235, 0.3);
+    border-color: rgba(244, 91, 69, 0.3);
 }
 .stat-card .stat-icon {
     width: 46px; height: 46px;
     border-radius: 12px;
-    background: #dbeafe;
+    background: rgba(244, 91, 69, 0.15);
     color: var(--primary);
     display: flex;
     align-items: center;
@@ -369,13 +372,13 @@ button { font-family: var(--font-family); }
 .stat-text h4 {
     font-size: 1.2rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: var(--bg-surface);
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
 .stat-text span {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: #8F9A95;
     font-weight: 600;
     display: block;
     margin-top: 3px;
@@ -385,7 +388,7 @@ button { font-family: var(--font-family); }
    RIGHT PANEL (FORM)
 ============================================ */
 .login-right {
-    background: var(--bg-surface);
+    background: var(--bg-main); /* Oppty Cream */
     padding: 56px 64px;
     display: flex;
     align-items: center;
@@ -501,6 +504,7 @@ button { font-family: var(--font-family); }
 }
 .toggle-password:hover {
     background: var(--bg-surface-hover);
+    color: var(--dark-accent);
 }
 
 .field-error {
@@ -526,7 +530,7 @@ button { font-family: var(--font-family); }
 }
 .forgot-link:hover { color: var(--primary-dark); text-decoration: underline; }
 
-/* Login Button — matches admin's .btn-primary */
+/* Login Button */
 .btn-login {
     width: 100%;
     padding: 16px 24px;
@@ -545,12 +549,14 @@ button { font-family: var(--font-family); }
     gap: 10px;
     position: relative;
     overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 .btn-login::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--primary-dark), var(--accent-purple));
+    background: linear-gradient(135deg, var(--primary-dark), var(--dark-accent));
     opacity: 0;
     transition: opacity var(--transition-fast);
 }
@@ -598,21 +604,21 @@ button { font-family: var(--font-family); }
 .signup-link a:hover { color: var(--primary-dark); text-decoration: underline; }
 
 .login-hint {
-    background: linear-gradient(135deg, #dbeafe, #ede9fe);
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    background: rgba(244, 91, 69, 0.05); /* Slight orange tint */
+    border: 1px solid rgba(244, 91, 69, 0.15);
     border-radius: var(--radius-sm);
     padding: 12px 14px;
     font-size: 0.78rem;
     color: var(--text-muted);
     line-height: 1.6;
 }
-.login-hint strong { color: var(--primary-dark); }
+.login-hint strong { color: var(--dark-accent); }
 
 /* Toast */
 .toast {
     position: fixed;
     bottom: 30px; right: 30px;
-    background: var(--text-main);
+    background: var(--dark-accent);
     color: white;
     padding: 14px 20px;
     border-radius: 12px;
@@ -639,7 +645,7 @@ button { font-family: var(--font-family); }
 ============================================ */
 .modal-overlay {
     position: fixed; inset: 0;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(17, 26, 21, 0.6); /* Match dark accent backdrop */
     backdrop-filter: blur(8px);
     z-index: 400;
     display: none;
@@ -654,7 +660,7 @@ button { font-family: var(--font-family); }
 
 .modal {
     background: var(--bg-surface);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     width: 100%;
     max-width: 500px;
     box-shadow: var(--shadow-lg);
@@ -667,7 +673,7 @@ button { font-family: var(--font-family); }
 .modal-overlay.show .modal { transform: scale(1); }
 
 .modal-header {
-    padding: 22px 28px;
+    padding: 24px 28px;
     border-bottom: 1px solid var(--border-light);
     display: flex;
     justify-content: space-between;
@@ -676,13 +682,14 @@ button { font-family: var(--font-family); }
     top: 0;
     background: var(--bg-surface);
     z-index: 10;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 .modal-header h2 {
-    font-size: 1.3rem;
-    font-weight: 800;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--text-main);
+    color: var(--dark-accent);
 }
 .close-modal {
     cursor: pointer;
@@ -696,8 +703,8 @@ button { font-family: var(--font-family); }
     user-select: none;
 }
 .close-modal:hover {
-    color: var(--accent-red);
-    background: #fee2e2;
+    color: var(--primary);
+    background: rgba(244, 91, 69, 0.1);
 }
 
 .modal-body {
@@ -719,15 +726,17 @@ button { font-family: var(--font-family); }
 }
 .btn-secondary {
     background: var(--bg-surface-hover);
-    color: var(--text-main);
+    color: var(--dark-accent);
     border: 1px solid var(--border-light);
     padding: 14px 24px;
     border-radius: 100px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: var(--transition-fast);
     font-family: var(--font-family);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .btn-secondary:hover {
     background: var(--border-light);
@@ -738,7 +747,7 @@ button { font-family: var(--font-family); }
     .login-left { padding: 48px 40px; }
     .login-right { padding: 48px 40px; }
     .hero-headline,
-    .hero-headline-2 { font-size: 2.2rem; }
+    .hero-headline-2 { font-size: 2.5rem; }
     .hero-content { gap: 44px; }
 }
 @media (max-width: 992px) {
