@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Error fetching courses:", error);
-            gridContainer.innerHTML = '<p style="color: white; text-align: center;">Failed to load courses. Please check your connection.</p>';
+            gridContainer.innerHTML = '<p style="color: red; text-align: center;">Failed to load courses. Please check your connection.</p>';
         }
     }
 

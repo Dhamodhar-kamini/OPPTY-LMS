@@ -94,7 +94,14 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-family); }
-body { background-color: var(--bg-light); color: var(--text-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body {
+  background-color: var(--bg-main);
+  background-image: radial-gradient(#d1ccc0 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 a { text-decoration: none; color: inherit; }
 
 .app-container { display: flex; width: 100%; min-height: 100vh; }

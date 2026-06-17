@@ -121,13 +121,22 @@
     font-family: var(--font-family);
 }
 
-body {
+/* body {
     background-color: var(--bg-main);
     color: var(--text-main);
     display: flex;
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+} */
+
+body {
+  background-color: var(--bg-main);
+  background-image: radial-gradient(#d1ccc0 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -158,6 +167,10 @@ a {
 .sidebar-logo {
     height: 42px;
     object-fit: contain;
+    width: 220px;
+    height: 120px; 
+    margin-bottom: -40px;
+    margin-top: -20px;
 }
 
 .close-sidebar {
