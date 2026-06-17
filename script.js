@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 3. DYNAMIC FEATURED COURSES GENERATION
     // ==========================================
-    // Reusing the exact JSON structure from your courses.js to keep data unified
     const featuredCourses = [
         {
             id: "course-animation-1",
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Prisma DB & Next.js",
             desc: "Seamlessly connect your Next.js/React stack with automated schemas and flawless database queries.",
             level: "Beginner",
-            tags: ['<span class="tag tag-free" style="background:#10b981; color:white;">FREE</span>']
+            tags: ['<span class="tag tag-free" style="background: var(--success); color:white;">FREE</span>']
         }
     ];
 
@@ -170,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         courseContainer.querySelectorAll('.course-card').forEach(card => {
             card.addEventListener('click', function() {
                 const id = this.getAttribute('data-course-id');
-                if(id) triggerLoaderAndNavigate(`../frontend/login/login.html?id=${id}`); 
+                if(id) triggerLoaderAndNavigate(`../login/login.html?id=${id}`); 
             });
         });
     }
