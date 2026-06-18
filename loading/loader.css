@@ -1,76 +1,97 @@
-/* =========================================
-   GLOBAL OVERLAY STYLES
-========================================= */
-.global-loader-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #f8fafc; /* Oppty Light Bg */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+/* Base styles for the page body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white; /* Ensures the page itself is white */
 }
 
-/* Hides the loader smoothly */
-.global-loader-overlay.hide-loader {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+/* NEW: The full-screen wrapper with a white background */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white; /* Forces the loader background to be white */
+  z-index: 9999; /* Ensures it sits on top of all other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease; /* Smooth fade out effect */
 }
 
-/* =========================================
-   CUSTOM LOGO ANIMATION STYLES
-========================================= */
-.loader-content {
-    position: relative;
-    width: 280px; 
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Original Loader CSS */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.2);
+
+  --from: 200px;
+  --to: 40px;
+  --size: 32px;
+  --time: 6s;
+  --count: 100;
+  --turns: 6;
 }
 
-.loader-icon {
-    position: absolute;
-    height: 65px; /* Adjust size if needed to match the full logo's icon */
-    width: auto;
-    opacity: 0;
-    /* Stage 1: Spin and pop out */
-    animation: spinAndPop 1.2s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+.circle {
+  position: absolute;
+
+  --delay: calc(var(--time) / var(--count) * -1 * var(--i));
+  rotate: calc(var(--turns) * 1turn / var(--count) * var(--i));
+
+  animation: circle var(--time) var(--delay) ease-in-out infinite;
+}
+.circle::before {
+  content: "";
+  display: block;
+  width: var(--size);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: white;
+  transform-origin: center center;
+
+  animation: circleSize var(--time) var(--delay) ease-in-out infinite;
 }
 
-.loader-full-logo {
-    position: absolute;
-    height: 60px; 
-    width: auto;
-    opacity: 0;
-    /* Stage 2: Wait 1.1s, then reveal smoothly from the center */
-    animation: smoothReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.1s forwards;
+/* rainbow color using HSL */
+.rainbow .circle::before {
+  background-color: hsl(
+    calc(1turn / (var(--count) / var(--turns)) * var(--i)) 100% 70%
+  );
 }
 
-/* --- Keyframes --- */
-@keyframes spinAndPop {
-    0% { transform: rotate(0deg) scale(0.5); opacity: 0; }
-    15% { transform: rotate(60deg) scale(1); opacity: 1; }
-    80% { transform: rotate(360deg) scale(1); opacity: 1; }
-    100% { transform: rotate(430deg) scale(0); opacity: 0; }
+/* animations */
+@keyframes circle {
+  from {
+    transform: translate(0, var(--from));
+  }
+  to {
+    transform: translate(0, var(--to));
+  }
+}
+@keyframes circleSize {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  25%,
+  50% {
+    transform: scale(1);
+  }
 }
 
-@keyframes smoothReveal {
-    0% { 
-        opacity: 0; 
-        clip-path: inset(0 50% 0 50%); /* Start clipped in the dead center */
-        transform: scale(0.85); 
-    }
-    100% { 
-        opacity: 1; 
-        clip-path: inset(0 0 0 0); /* Open up to reveal full image */
-        transform: scale(1); 
-    }
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.2);
+
+  --from: 200px;
+  --to: 40px;
+  --size: 32px;
+  --time: 3s; /* CHANGED from 6s to 3s */
+  --count: 100;
+  --turns: 6;
 }
